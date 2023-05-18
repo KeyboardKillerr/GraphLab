@@ -16,6 +16,9 @@ namespace Graph.Maps
         public void RemoveNode(Node<T> node);
         public void ConnectNode(Node<T> firstNode, Node<T> secondNode, int val);
         public void DisconnectNode(Node<T> node);
+        public ConnectionValue<T> GetConnectionValue(T firstId, T secondId);
+        public Node<T> GetNodeById(T id);
+        public Node<T> Any();
         public void Clear();
         public string ToString();
     }

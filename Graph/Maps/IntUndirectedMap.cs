@@ -86,11 +86,25 @@ namespace Graph.Maps
                 node.Detach(connectedNode);
             }
         }
+        public ConnectionValue<int> GetConnectionValue(int firstId, int secondId)
+        {
+            var result = _connectionsValues.FirstOrDefault(c => c.FirstIndex == firstId && c.SecondIndex == secondId);
+            if (result.Value == 0) return _connectionsValues.FirstOrDefault(c => c.FirstIndex == secondId && c.SecondIndex == firstId);
+            return result;
+        }
+        public Node<int> GetNodeById(int id)
+        {
+            return _nodes.FirstOrDefault(n => n.Id == id);
+        }
+        public Node<int> Any()
+        {
+            return _nodes.FirstOrDefault();
+        }
         public void Clear()
         {
             foreach (var node in _nodes) RemoveNode(node);
         }
-        public string ToString()
+        public override string ToString()
         {
             string output = "Nodes:\n";
             foreach (var node in _nodes) output += $"{node.Id}\n";
