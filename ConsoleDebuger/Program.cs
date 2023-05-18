@@ -20,7 +20,7 @@ namespace ConsoleDebuger
             Console.WriteLine(map.GetNodeById(1).Id);
             map.Clear();
             Console.WriteLine(map.ToString());
-            Console.WriteLine(map.Any().Id);
+            //Console.WriteLine(map.Any().Id);
         }
     }
 }
